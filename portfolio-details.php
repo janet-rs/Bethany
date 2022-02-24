@@ -63,7 +63,6 @@
   </header><!-- End Header -->
 
   <main id="main">
-
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
@@ -77,6 +76,25 @@
 
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
+
+      
+      <?php
+        require './modelo/conexion.php';
+        $idViaje = $_GET['idVia'];
+        $sql = "SELECT * FROM destinos WHERE idViaje = $idViaje";
+        $resultado = mysqli_query($con,$sql) or die ('Error en el query database');
+        while ($row = mysqli_fetch_array($resultado)) {
+            $nombreDestino= $row['nombreDestino'];
+            $hotel= $row['hotel'];
+            $duracion= $row['duracion'];
+            $precio= $row['precio'];
+            $descripcion= $row['descripcion'];
+            $imagen1= $row['imagen1'];
+            $imagen2= $row['imagen2'];
+            $imagen3= $row['imagen3'];
+      ?>
+      &nbsp;
+
       <div class="container">
 
         <div class="row gy-4">
@@ -86,15 +104,15 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/cancun1.jpg" alt="">
+                  <img src="<?php echo $imagen1; ?>" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/cancun2.jpg" alt="">
+                  <img src="<?php echo $imagen2; ?>" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/cancun3.jpg" alt="">
+                  <img src="<?php echo $imagen3; ?>" alt="">
                 </div>
 
               </div>
@@ -106,16 +124,16 @@
             <div class="portfolio-info">
               <h3>Información</h3>
               <ul>
-                <li><strong>Destino</strong>: Cancun</li>
-                <li><strong>Hotel</strong>: Casa Maya</li>
-                <li><strong>Duracion de Viaje</strong>: 8 dias</li>
-                <li><strong>Precio final</strong>: 7,400</li>
+                <li><strong>Destino</strong>: <?php echo $nombreDestino; ?></li>
+                <li><strong>Hotel</strong>: <?php echo $hotel; ?></li>
+                <li><strong>Duracion de Viaje</strong>: <?php echo $duracion; ?></li>
+                <li><strong>Precio final</strong>: <?php echo $precio; ?></li>
               </ul>
             </div>
             <div class="portfolio-description">
               <h2>Descripción</h2>
               <p>
-                Sus 22 kilómetros de playas y bancos de arena blanca, sus hermosas playas de azul turquesa, la increíble laguna nichupté, los hoteles de lujo frente al mar, la gastronomía única, sus artesanías, plazas, centros comerciales, el caluroso y fresco clima son solo alguna de las características de Cancún.
+                <?php echo $descripcion; ?>
               </p>
             </div>
           </div>
@@ -123,6 +141,10 @@
         </div>
 
       </div>
+
+      <?php
+        }
+      ?>
     </section><!-- End Portfolio Details Section -->
 
   </main><!-- End #main -->
