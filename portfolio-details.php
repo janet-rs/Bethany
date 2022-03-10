@@ -81,7 +81,7 @@
       <?php
         require './modelo/conexion.php';
         $idViaje = $_GET['idVia'];
-        $sql = "SELECT * FROM destinos WHERE idViaje = $idViaje";
+        $sql = "SELECT * FROM viajes WHERE idViaje = $idViaje";
         $resultado = mysqli_query($con,$sql) or die ('Error en el query database');
         while ($row = mysqli_fetch_array($resultado)) {
             $nombreDestino= $row['nombreDestino'];

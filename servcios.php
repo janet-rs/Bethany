@@ -72,7 +72,7 @@
 
   <!--<?php
         /*require './modelo/conexion.php';
-        $sql = "SELECT * FROM destinos";
+        $sql = "SELECT * FROM viajes";
         $resultado = mysqli_query($con,$sql) or die ('Error en el query database');
         while ($row = mysqli_fetch_array($resultado)) {
             $nombreDestino= $row['nombreDestino'];
