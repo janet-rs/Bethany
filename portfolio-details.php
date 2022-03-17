@@ -124,7 +124,7 @@
             <div class="portfolio-info">
               <h3>Información</h3>
               <ul>
-                <li><strong>Destino</strong>: <?php echo $nombreDestino; ?></li>
+                <li><strong>Destino</strong>: <?php echo $hotel; ?></li>
                 <li><strong>Hotel</strong>: <?php echo $hotel; ?></li>
                 <li><strong>Duracion de Viaje</strong>: <?php echo $duracion; ?></li>
                 <li><strong>Precio final</strong>: <?php echo $precio; ?></li>

@@ -51,9 +51,9 @@
             <li><a class="nav-link scrollto" href="index.html">Nosotros</a></li>
             <li class="dropdown"><a href="portfolio-details.html"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="#">Familiar</a></li>
-                <li><a href="#">Pareja</a></li>
-                <li><a href="#">Grupo</a></li>
+              <li><a href="servcios.php?idTipoVia=1">Familiar</a></li>
+                <li><a href="servcios.php?idTipoVia=2">Pareja</a></li>
+                <li><a href="servcios.php?idTipoVia=3">Grupo</a></li>
               </ul>
             </li>
             <li><a class="nav-link scrollto" href="contacto.html">Contacto </a></li>
@@ -69,22 +69,6 @@
   <br>
   <br>
   <main id="main">
-
-  <!--<?php
-        /*require './modelo/conexion.php';
-        $sql = "SELECT * FROM viajes";
-        $resultado = mysqli_query($con,$sql) or die ('Error en el query database');
-        while ($row = mysqli_fetch_array($resultado)) {
-            $nombreDestino= $row['nombreDestino'];
-            $hotel= $row['hotel'];
-            $duracion= $row['duracion'];
-            $precio= $row['precio'];
-            $descripcion= $row['descripcion'];
-            $imagen1= $row['imagen1'];
-            $imagen2= $row['imagen2'];
-            $imagen3= $row['imagen3'];*/
-    ?>
-    &nbsp;-->
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
@@ -109,85 +93,45 @@
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
+        <?php
+        require './modelo/conexion.php';
+        $idTipoViaje = $_GET['idTipoVia'];
+        $sql = "SELECT * FROM viajes v INNER JOIN viajes_tipoviaje vtv on v.idViaje = vtv.idViaje where idTipoViaje = $idTipoViaje";
+        $resultado = mysqli_query($con,$sql) or die ('Error en el query database');
+        while ($row = mysqli_fetch_array($resultado)) {
+            $idViaje=$row['idViaje'];
+            $nombreDestino= $row['nombreDestino'];
+            $hotel= $row['hotel'];
+            $duracion= $row['duracion'];
+            $precio= $row['precio'];
+            $descripcion= $row['descripcion'];
+            $imagen1= $row['imagen1'];
+            $imagen2= $row['imagen2'];
+            $imagen3= $row['imagen3'];
+        ?>
+        &nbsp;
+
+
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/best-Cancun-excursions.jpg" class="img-fluid" alt="">
+              <img src="<?php echo $imagen1; ?>" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Cancun</h4>
+                <h4><?php echo $nombreDestino; ?></h4>
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/best-Cancun-excursions.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.php?idVia=1" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="<?php echo $imagen2; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.php?idVia=<?php echo $idViaje; ?>" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/guadalajara2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Guadalajara</h4>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/guadalajara3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.php?idVia=3" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/monterrey1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Monterrey</h4>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/monterrey2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.php?idVia=4" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/best-Cancun-excursions.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Cancun</h4>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/best-Cancun-excursions.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/best-Cancun-excursions.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Cancun</h4>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/best-Cancun-excursions.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/best-Cancun-excursions.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Cancun</h4>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/best-Cancun-excursions.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          
+        <?php
+          }
+        ?>
+          
 
       </div>
     </section><!-- End Portfolio Section -->
-
-    <!--<?php
-      //}
-    ?>-->
 
   </main><!-- End #main -->
 
