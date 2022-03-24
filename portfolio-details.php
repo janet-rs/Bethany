@@ -57,23 +57,13 @@
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-
+        
       </div><!-- End Header Container -->
     </div>
   </header><!-- End Header -->
 
   <main id="main">
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Detalles</h2>
-        </div>
-
-      </div>
-    </section><!-- End Breadcrumbs -->
-
+    
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
 
