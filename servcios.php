@@ -9,9 +9,6 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-
- 
-  
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   
@@ -72,11 +69,20 @@
   <!-- ======= Breadcrums ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
+
+      <?php
+        require './modelo/conexion.php';
+        $idTipoViaje = $_GET['idTipoVia'];
+        $sql = "SELECT tv.nomTipoViaje FROM tipoviaje tv INNER JOIN viajes_tipoviaje vtv on tv.idTipoViaje = vtv.idTipoViaje where tv.idTipoViaje = $idTipoViaje";
+        $resultado = mysqli_query($con,$sql) or die ('Error en el query database');
+        $arr = mysqli_fetch_array($resultado);
+      ?>
+
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./index.html">Inicio</a></li>
             <li class="breadcrumb-item"><a href="">Servicios</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Paquetes Grupo</li>
+            <li class="breadcrumb-item active" aria-current="page">Paquetes en <?php echo $arr[0];?></li>
           </ol>
         </nav>
       </div>
@@ -86,7 +92,7 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-left">
-          <h2>Paquetes en Grupo</h2>
+          <h2>Paquetes en <?php echo $arr[0];?></h2>
           <p>En estos tiempos, las cosas cambian constantemente.
              Te ayudaremos a tomar las mejores decisiones para tú viaje y a resolver todo lo que vaya sucediendo. </p>
         </div>
