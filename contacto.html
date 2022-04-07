@@ -26,6 +26,14 @@
 
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+
+  <script>
+    function onSubmit(token) {
+      document.getElementById("msjContacto").submit();
+    }
+  </script>
+
 </head>
 
 <body>
@@ -35,7 +43,7 @@
     <div class="container">
       <div class="header-container d-flex align-items-center justify-content-between">
         <div class="logo">
-          <h1 class="text-light"><a href="index.html"><span>BrealTravel</span></a></h1>
+          <h1 class="text-light"><a href="index.html"><span>BrealTravel Admin</span></a></h1>
           <!-- Uncomment below if you prefer to use an image logo -->
           <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
@@ -119,7 +127,7 @@
               </div>
             </div>
 
-            <form action="../Bethany/modelo/contacto.php" method="post" class="php-email-form mt-4">
+            <form id="msjContacto" action="../Bethany/modelo/contacto.php" method="post" class="php-email-form mt-4">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Tu Nombre" required>
@@ -136,7 +144,11 @@
               </div>
 
               <div class="text-center">
-                <button type="submit">Enviar Mensaje</button>
+                <button class="g-recaptcha" 
+                  data-sitekey="6LcR7VUfAAAAADALeLtEKrgj6MO13pT169o3H68z" 
+                  data-callback='onSubmit' 
+                  data-action='submit'>Submit</button>
+                <!--<button type="submit">Enviar Mensaje</button>-->
               </div>
             </form>
           </div>
