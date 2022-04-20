@@ -1,3 +1,21 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['rol'])){
+      switch($_SESSION['rol']){
+          case 1:
+              header("location:admin.php");
+          break;
+
+          case 2:
+              header("location:usuario.php");
+          break;
+          default:
+      }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,7 +105,8 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="formlg" action=""">
+
+								<form action="modelo/validacion.php" method="post">
 									<div class="form-group">
 										<input type="text" name="usuariolg" id="usuariolg" tabindex="1" class="form-control" placeholder="Usuario" value="">
 									</div>

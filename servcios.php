@@ -53,7 +53,8 @@
                 <li><a href="servcios.php?idTipoVia=3">Grupo</a></li>
               </ul>
             </li>
-            <li><a class="nav-link scrollto" href="contacto.html">Contacto </a></li>
+            <li><a class="nav-link scrollto" href="contactoUsuario.html">Contacto </a></li>
+            <li><a class="getstarted scrollto" href="inicioSesion.php">Iniciar Sesión</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

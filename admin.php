@@ -1,3 +1,16 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['rol'])){
+        header("location:index.html");
+    }else{
+        if($_SESSION['rol'] != 1){
+            header("location:usuario.php");
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,16 +23,11 @@
   <meta content="" name="keywords">
 
 
-  <!-- Favicons -->
-  
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -28,20 +36,27 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
+
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+
+  <script>
+    function onSubmit(token) {
+      document.getElementById("msjContacto").submit();
+    }
+  </script>
 
 </head>
 
 <body>
-
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container">
       <div class="header-container d-flex align-items-center justify-content-between">
         <div class="logo">
-          <h1 class="text-light"><a href="index.html"><span>BrealTravel</span></a></h1>
+          <h1 class="text-light"><a href="index.html"><span>BrealTravel Admin</span></a></h1>
           <!-- Uncomment below if you prefer to use an image logo -->
           <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
@@ -49,16 +64,16 @@
         <nav id="navbar" class="navbar">
           <ul>
             <li><a class="nav-link scrollto " href="index.html">Inicio</a></li>
-            <li><a class="nav-link scrollto" href="#about">Nosotros</a></li>
-            <li class="dropdown"><a href="#"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
+            <li><a class="nav-link scrollto" href="index.html">Nosotros</a></li>
+            <li class="dropdown"><a href="portfolio-details.html"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="servcios.php?idTipoVia=1">Familiar</a></li>
+              <li><a href="servcios.php?idTipoVia=1">Familiar</a></li>
                 <li><a href="servcios.php?idTipoVia=2">Pareja</a></li>
                 <li><a href="servcios.php?idTipoVia=3">Grupo</a></li>
               </ul>
             </li>
-            <li><a class="nav-link scrollto" href="contacto.php">Contacto </a></li>
-            <li><a class="getstarted scrollto" href="inicioSesion.php">Iniciar Sesión</a></li>
+            <li><a class="nav-link scrollto" href="contacto.html">Contacto </a></li>
+            <li><a class="getstarted scrollto" href="modelo/cerrarSesion.php">Cerrar Sesión</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -67,97 +82,35 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
-      <h1>Breal Travel</h1><br>
-      <h1>La mejor aplicacion online para tus vacaciones</h1>
-      <h2>Desde la planeación hasta tu regreso a casa, te acompañamos en cada etapa del camino</h2>
-      <a href="#about" class="btn-get-started scrollto">Ver Más</a>
-    </div>
-  </section><!-- End Hero -->
-  <br>
   <main id="main">
     <!-- ======= Breadcrums ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-            
+            <li class="breadcrumb-item"><a href="/index.html">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Pagina Admin</li>
           </ol>
         </nav>
       </div>
     </section><!-- End Breadcrumbs -->
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+   
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
       <div class="container">
-
-        <div class="row content">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-            <h2>Porque Breal Travel es la mejor opcion para ti?</h2>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
-            <p>
-              Te llevamos a los mejores lugares en Breal Travel nos especializamos en lo único. No importa si quieres un crucero,
-              conocer los pueblitos mágicos o lo que desees, te ayudamos a encontrar tu mejor opción.
-              <br> </br>
-              Nuestros planes para viajar:
-            </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> Con tu Pareja</li>
-              <li><i class="ri-check-double-line"></i> Con la Familia</li>
-              <li><i class="ri-check-double-line"></i> Con tu grupo de amigos</li>
-            </ul>
-            <p>Visita nuestra sección de Servicios y elige el viaje que más te convenga</p>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-    <br>
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
-      <div class="container">
-
         <div class="row">
-          <div class="col-lg-4">
-            <div class="section-title" data-aos="fade-right">
-              <h2>Nuestros Servicios</h2>
-              <p>Las opciones de paquete de acuerdo a tus necesidades</p>
+          <div class="col-lg-4" data-aos="fade-right">
+            <div class="section-title">
+              <h2>Esta es la pagina para el administrador</h2>
+              <p>Pagina de prueba. Aqui incluiran funciones especificas que solo el administrador pueder observar</p>
             </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="row">
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="icon"><i class="bi bi-people"></i></div>
-                  <h4><a href="servcios.php?idTipoVia=1">Familiar</a></h4>
-                  <p>Disfruta de viajes únicos en compañia de todo tu Familia </p>
-                </div>
-              </div>
+          
 
-              <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-                <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="icon"><i class="bi bi-people"></i></div>
-                  <h4><a href="servcios.php?idTipoVia=2">Pareja</a></h4>
-                  <p>Viaja con esa persona especial, y goza de experiencias extraordinarias</p>
-                </div>
-              </div>
-
-              <div class="col-md-6 d-flex align-items-stretch mt-4">
-                <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="icon"><i class="bi bi-people"></i></div>
-                  <h4><a href="servcios.php?idTipoVia=3">Grupo</a></h4>
-                  <p>La mejor opción, para divertirte con tus amigos, conociendo lugares y creando recuerdos</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
 
@@ -209,7 +162,6 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

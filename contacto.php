@@ -43,7 +43,7 @@
     <div class="container">
       <div class="header-container d-flex align-items-center justify-content-between">
         <div class="logo">
-          <h1 class="text-light"><a href="index.html"><span>BrealTravel Admin</span></a></h1>
+          <h1 class="text-light"><a href="index.html"><span>BrealTravel</span></a></h1>
           <!-- Uncomment below if you prefer to use an image logo -->
           <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
@@ -60,6 +60,7 @@
               </ul>
             </li>
             <li><a class="nav-link scrollto" href="contacto.html">Contacto </a></li>
+            <li><a class="getstarted scrollto" href="cerrarSesion.php">Cerrar Sesión</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -127,7 +128,7 @@
               </div>
             </div>
 
-            <form id="msjContacto" action="../Bethany/modelo/contacto.php" method="post" class="php-email-form mt-4">
+            <form id="msjContacto" action="../Bethany/modelo/mensaje.php" method="post" class="php-email-form mt-4">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Tu Nombre" required>
