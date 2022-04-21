@@ -3,32 +3,6 @@
 
     session_start();
 
-    /*if(!empty($_POST)){
-        $nombre = $_POST['usuariolg'];
-        $contraseña = $_POST['passwordlg'];
-        $captcha = $_POST['g-recaptcha-response'];
-
-        $secret = '6Lf8VY8fAAAAACIBtBx5e-Jf-MZWoEvUrtwScKh9';
-
-        if(!$captcha){
-            echo "Por favor verifica el captcha";
-        }
-
-        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha");
-
-        var_dump($response);
-
-        $arr = json_decode($response, true);
-
-        if($arr['success']){
-            echo '<h3>Thanks </h3>';
-
-        }else{
-            echo '<h3>Error al comprobar Captcha </h3>';
-        }
-
-    }*/
-
     if(isset($_GET['cerrarSesion'])){
         session_unset();
 
