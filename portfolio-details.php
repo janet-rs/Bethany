@@ -27,7 +27,10 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="buscador.css">
+  <!--JS-->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
@@ -53,11 +56,42 @@
                 <li><a href="servcios.php?idTipoVia=3">Grupo</a></li>
               </ul>
             </li>
-            <li><a class="nav-link scrollto" href="contacto.html">Contacto </a></li>
+            <li><a class="nav-link scrollto" href="contacto.php">Contacto </a></li>
+            <li>
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" id="inputBusqueda" placeholder="Buscar"
+                  aria-label="Buscar">
+              </form>
+              <div class="search" id="search">
+                <table class="search-table" id="searchTable">
+                  <thead>
+                    <tr>
+                      <td></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="index.html">Inicio</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="servcios.php?idTipoVia=1">Familiar</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="servcios.php?idTipoVia=2">Parejas</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="servcios.php?idTipoVia=3">Grupo</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="contacto.php">Contacto</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-        
       </div><!-- End Header Container -->
     </div>
   </header><!-- End Header -->
@@ -190,7 +224,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="assets/js/buscador.js"></script>
 </body>
 
 </html>

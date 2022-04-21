@@ -24,8 +24,12 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
 
+  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="buscador.css">
+  <!--JS-->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/jquery.dataTables.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js"></script>
 
   <script>
@@ -59,7 +63,41 @@
                 <li><a href="servcios.php?idTipoVia=3">Grupo</a></li>
               </ul>
             </li>
-            <li><a class="nav-link scrollto" href="contacto.html">Contacto </a></li>
+            <li><a class="nav-link scrollto" href="contacto.php">Contacto </a></li>
+            <li>
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" id="inputBusqueda" placeholder="Buscar"
+                  aria-label="Buscar">
+              </form>
+              <div class="search" id="search">
+                <table class="search-table" id="searchTable">
+                  <thead>
+                    <tr>
+                      <td></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="index.html">Inicio</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="servcios.php?idTipoVia=1">Familiar</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="servcios.php?idTipoVia=2">Parejas</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="servcios.php?idTipoVia=3">Grupo</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="contacto.php">Contacto</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
             <li><a class="getstarted scrollto" href="cerrarSesion.php">Cerrar Sesión</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
@@ -209,8 +247,9 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+   <!-- Template Main JS File -->
+   <script src="assets/js/main.js"></script>
+   <script src="assets/js/buscador.js"></script>
 
 </body>
 
