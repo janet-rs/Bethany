@@ -64,7 +64,7 @@
 	{
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("SELECT id FROM usuarios WHERE correo = ? LIMIT 1");
+		$stmt = $mysqli->prepare("SELECT idUsuario FROM usuarios WHERE correo = ? LIMIT 1");
 		$stmt->bind_param("s", $email);
 		$stmt->execute();
 		$stmt->store_result();
@@ -127,8 +127,8 @@
 		$mail->isSMTP();
 		$mail->SMTPAuth = true;
 		$mail->SMTPSecure = 'tipo de seguridad'; //Modificar
-		$mail->Host = 'dominio'; //Modificar
-		$mail->Port = puerto; //Modificar
+		$mail->Host = 'localhost'; //Modificar
+		$mail->Port = '80'; //Modificar
 		
 		$mail->Username = 'correo emisor'; //Modificar
 		$mail->Password = 'password de correo emisor'; //Modificar
@@ -146,7 +146,7 @@
 		return false;
 	}
 	
-	function validaIdToken($id, $token){
+	/*function validaIdToken($id, $token){
 		global $mysqli;
 		
 		$stmt = $mysqli->prepare("SELECT activacion FROM usuarios WHERE id = ? AND token = ? LIMIT 1");
@@ -172,7 +172,7 @@
 			$msg = 'No existe el registro para activar.';
 		}
 		return $msg;
-	}
+	}*/
 	
 	function activarUsuario($id)
 	{
@@ -196,7 +196,7 @@
 		}		
 	}
 	
-	function login($usuario, $password)
+	/*function login($usuario, $password)
 	{
 		global $mysqli;
 		
@@ -233,7 +233,7 @@
 			$errors = "El nombre de usuario o correo electr&oacute;nico no existe";
 		}
 		return $errors;
-	}
+	}*/
 	
 	function lastSession($id)
 	{
@@ -245,7 +245,7 @@
 		$stmt->close();
 	}
 	
-	function isActivo($usuario)
+	/*function isActivo($usuario)
 	{
 		global $mysqli;
 		
@@ -263,7 +263,7 @@
 		{
 			return false;	
 		}
-	}	
+	}*/	
 	
 	function generaTokenPass($user_id)
 	{
@@ -301,7 +301,7 @@
 		}
 	}
 	
-	function getPasswordRequest($id)
+	/*function getPasswordRequest($id)
 	{
 		global $mysqli;
 		
@@ -319,9 +319,9 @@
 		{
 			return null;	
 		}
-	}
+	}*/
 	
-	function verificaTokenPass($user_id, $token){
+	/*function verificaTokenPass($user_id, $token){
 		
 		global $mysqli;
 		
@@ -348,7 +348,7 @@
 		{
 			return false;	
 		}
-	}
+	}*/
 	
 	function cambiaPassword($password, $user_id, $token){
 		
