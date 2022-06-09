@@ -83,7 +83,7 @@
             <li class="dropdown"><a href="portfolio-details.html"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
               <li><a href="servcios.php?idTipoVia=1">Familiar</a></li>
-                <li><a href="servcios.php?idTipoVia=2">Pareja</a></li>
+                <li><a href="servcios.php?idTipoVia=2">Parejitas</a></li>
                 <li><a href="servcios.php?idTipoVia=3">Grupo</a></li>
               </ul>
             </li>
